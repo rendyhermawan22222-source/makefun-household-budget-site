@@ -1,0 +1,229 @@
+/* Anggaran Rumah Tangga — warm, readable, phone-friendly.
+   Deep green + terracotta on cream; system fonts only, no webfonts. */
+
+:root {
+  --green: #146c43;
+  --green-dark: #0d4d2f;
+  --terra: #c65d3a;
+  --gold: #d9a441;
+  --cream: #faf6ef;
+  --paper: #fffdf8;
+  --ink: #1d2b22;
+  --muted: #5b5648;
+  --line: #e4dccb;
+  --good: #146c43;
+  --bad: #b3371f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: var(--green); }
+a:hover { color: var(--green-dark); }
+
+.topbar {
+  background: var(--green-dark);
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { color: #fff; font-weight: 800; font-size: 20px; text-decoration: none; }
+.brand span { font-weight: 400; color: #ffe9b0; }
+
+#nav { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+#nav a {
+  color: #d9efe2;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+#nav a[aria-current="page"] { background: #ffffff2e; color: #fff; font-weight: 700; }
+#nav a:hover { color: #fff; }
+
+main { max-width: 1080px; margin: 0 auto; padding: 20px 20px 40px; }
+
+h1 { font-size: 30px; line-height: 1.2; margin: 8px 0 6px; }
+h2 { font-size: 19px; margin: 0 0 10px; }
+.lede { font-size: 17px; color: var(--muted); max-width: 72ch; }
+.muted { color: var(--muted); font-size: 14px; }
+.kicker { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; font-weight: 700; color: var(--terra); margin: 0; }
+.big { font-size: 34px; font-weight: 800; margin: 4px 0; }
+.num { font-size: 26px; font-weight: 800; margin: 2px 0; }
+.good { color: var(--good); }
+.bad { color: var(--bad); }
+em { color: var(--green); font-style: normal; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.hero-card {
+  background: var(--green-dark);
+  color: #fff;
+  border-radius: 14px;
+  padding: 20px;
+}
+.hero-card .muted { color: #cfe8d8; }
+.hero-card .card-label { color: #ffe9b0; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.card-label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 4px; font-weight: 700; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.grid2 .panel { margin-bottom: 0; }
+
+.bar {
+  display: block;
+  height: 10px;
+  background: #ece5d3;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 6px 0 10px;
+}
+.bar > span { display: block; height: 100%; background: var(--green); border-radius: 6px; }
+
+.bars { list-style: none; padding: 0; margin: 12px 0 0; }
+.bars li { display: grid; grid-template-columns: 110px 1fr 70px; gap: 10px; align-items: center; margin: 8px 0; font-size: 14px; }
+.bars .bar { margin: 0; }
+.bars b { text-align: right; }
+
+ul.plain { padding-left: 20px; }
+ul.plain li { margin: 6px 0; }
+.goal-line { display: flex; justify-content: space-between; margin: 10px 0 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th { text-align: left; color: var(--muted); font-size: 13px; border-bottom: 2px solid var(--line); padding: 6px 8px; }
+td { border-bottom: 1px solid var(--line); padding: 8px; vertical-align: middle; }
+tr.paid td { color: var(--muted); text-decoration: line-through; }
+tr.paid td:first-child { text-decoration: none; }
+.tablewrap { overflow-x: auto; }
+
+input[type="number"], input[type="text"], input:not([type]), select {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid #c9c2ae;
+  border-radius: 8px;
+  background: #fff;
+  max-width: 100%;
+}
+td input[type="number"] { width: 130px; }
+input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--green); }
+
+.addrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  align-items: center;
+}
+.addrow input, .addrow select { flex: 1 1 160px; }
+
+.btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover { background: #a94c2d; color: #fff; }
+.btn.ghost { background: transparent; color: var(--green); border: 2px solid var(--green); }
+.btn.ghost:hover { background: #e7f2ea; }
+.btn.small { padding: 8px 12px; }
+.cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+.mini {
+  background: none;
+  border: 1px solid #c9c2ae;
+  border-radius: 7px;
+  padding: 4px 9px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.mini:hover { border-color: var(--terra); color: var(--terra); }
+
+.tag {
+  background: #f3e2c7;
+  color: #7a4d12;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.verdict {
+  background: #fdf3e3;
+  border-left: 4px solid var(--gold);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+}
+.verdict.good { background: #e7f2ea; border-left-color: var(--green); }
+.verdict.bad { background: #fbe9e4; border-left-color: var(--bad); }
+
+.calc-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 8px; }
+.calc-row label { display: grid; gap: 4px; font-weight: 700; font-size: 14px; }
+
+canvas { max-width: 100%; height: auto; }
+
+.foot {
+  border-top: 1px solid var(--line);
+  padding: 18px 20px 30px;
+  max-width: 1080px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+.foot a { margin-right: 12px; }
+
+@media (max-width: 760px) {
+  h1 { font-size: 24px; }
+  .hero, .grid2 { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  main { padding: 14px 14px 30px; }
+  td input[type="number"] { width: 104px; }
+  .big { font-size: 28px; }
+}
